@@ -27,14 +27,4 @@ public class HomeController : Controller
         ViewBag.aviso = obj.text;
         return View();
     }
-
-    public IActionResult Partial()
-    {
-        return PartialView();
-    }
-
-    public IActionResult Json()
-    {
-        return Json(new {Holi= "Test"});
-    }
 }
