@@ -1,41 +1,530 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @RenderSection("metaSEO", required: false)
-    @RenderSection("css", required: false)
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- favicons Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+  <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/assets/images/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  @RenderSection("metaSEO", required: false)
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,400;0,700;0,800;1,800&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="/assets/vendors/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/vendors/bootstrap-select/bootstrap-select.min.css" />
+  <link rel="stylesheet" href="/assets/vendors/animate/animate.min.css" />
+  <link rel="stylesheet" href="/assets/vendors/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="/assets/vendors/jquery-ui/jquery-ui.css" />
+  <link rel="stylesheet" href="/assets/vendors/jarallax/jarallax.css" />
+  <link rel="stylesheet" href="/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+  <link rel="stylesheet" href="/assets/vendors/nouislider/nouislider.min.css" />
+  <link rel="stylesheet" href="/assets/vendors/nouislider/nouislider.pips.css" />
+  <link rel="stylesheet" href="/assets/vendors/tiny-slider/tiny-slider.css" />
+  <link rel="stylesheet" href="/assets/vendors/trevlo-icons/style.css" />
+  <link rel="stylesheet" href="/assets/vendors/daterangepicker-master/daterangepicker.css" />
+  <link rel="stylesheet" href="/assets/vendors/owl-carousel/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="/assets/vendors/owl-carousel/css/owl.theme.default.min.css" />
+
+  <!-- template styles -->
+  <link rel="stylesheet" href="/assets/css/trevlo.css" />
+  <link rel="stylesheet" href="/assets/css/estilospedrito.css" />
+
+
+  @RenderSection("css", required: false)
 </head>
 
 <body>
 
-    <nav style="display: flex;">
-        <ul>
-            <li><a href="/">Inicio</a></li>
-        </ul>
-        <ul>
-            <li><a href="/galeria">Galería</a></li>
-        </ul>
-        <ul>
-            <li><a href="/contacto">Contacto</a></li>
-        </ul>
-        <ul>
-            <li><a href="/nosotros">Nosotros</a></li>
-        </ul>
-        <ul>
-            <li><a href="/terminos-condiciones">Términos</a></li>
-        </ul>
-        <ul>
-            <li><a href="/aviso-privacidad">Privacidad</a></li>
-        </ul>
-        
-    </nav>
+  <div class="preloader">
+    <div class="preloader__image" style="background-image: url(/assets/images/loader.png);"></div>
+  </div>
+  <!-- /.preloader -->
+
+  <div class="page-wrapper">
+    <div class="topbar-one">
+      <div class="topbar-one__contaner container-fluid">
+        <div class="topbar-one__inner">
+          <div class="topbar-one__left">
+            <ul class="topbar-one__info">
+              <li class="topbar-one__info-item">
+                <span class="topbar-one__info-icon icon-envelope"></span>
+                <a href="mailto:@ViewBag.sitio.emailContact"
+                  class="topbar-one__info-text">@ViewBag.sitio.emailContact</a>
+              </li>
+              <li class="topbar-one__info-item">
+                <span class="topbar-one__info-icon icon-phone-1"></span>
+                <a href="tel:+@ViewBag.sitio.phoneContact" class="topbar-one__info-text">@ViewBag.sitio.phoneContact</a>
+              </li>
+            </ul><!-- /.topbar-one__info -->
+            <ul class="topbar-one__info topbar-one__info--right">
+              <li class="topbar-one__info-item">
+                <span class="topbar-one__info-icon icon-clock-1"></span>
+                <span class="topbar-one__info-text">@ViewBag.sitio.businessHours</span>
+              </li>
+            </ul><!-- /.topbar-one__info -->
+          </div><!-- /.topbar-one__left -->
+          <div class="topbar-one__right">
+            <ul class="topbar-one__social">
+              @if (ViewBag.sitio.facebook != "")
+              {
+                <li class="topbar-one__social-item">
+                  <a target="_blank" href="@ViewBag.sitio.facebook" class="topbar-one__social-link"><i
+                      class="fab fa-facebook-f"></i></a>
+                </li>
+              }
+              @if (ViewBag.sitio.twitter != "")
+              {
+                <li class="topbar-one__social-item">
+                  <a target="_blank" href="@ViewBag.sitio.twitter" class="topbar-one__social-link"><i
+                      class="fab fa-twitter"></i></a>
+                </li>
+              }
+              @if (ViewBag.sitio.whatsapp != "")
+              {
+                <li class="topbar-one__social-item">
+                  <a target="_blank" href="@ViewBag.sitio.whatsapp" class="topbar-one__social-link"><i
+                      class="fab fa-whatsapp"></i></a>
+                </li>
+              }
+              <li class="topbar-one__social-item">
+                <a id="superpopover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom"
+                  data-bs-trigger="focus" data-bs-content="
+          <ul class='list-unstyled mb-0 d-flex'>
+                @if (ViewBag.sitio.google != "")
+                {
+                  <li class='topbar-one__social-item'>
+                    <a href='@ViewBag.sitio.google' target='_blank'><i class='fab fa-google'></i></a>
+                  </li>
+                }
+                @if (ViewBag.sitio.instagram != "")
+                {
+                  <li class='topbar-one__social-item'>
+                    <a href='@ViewBag.sitio.instagram' target='_blank'><i class='fab fa-instagram'></i></a>
+                  </li>
+                }
+                @if (ViewBag.sitio.pinterest != "")
+                {
+                  <li class='topbar-one__social-item'>
+                    <a href='@ViewBag.sitio.pinterest' target='_blank'><i class='fab fa-pinterest-p'></i></a>
+                  </li>
+                }
+                @if (ViewBag.sitio.youtube != "")
+                {
+                  <li class='topbar-one__social-item'>
+                    <a href='@ViewBag.sitio.youtube' target='_blank'><i class='fab fa-youtube'></i></a>
+                  </li>
+                }
+                @if (ViewBag.sitio.linkedin != "")
+                {
+                  <li class='topbar-one__social-item'>
+                    <a href='@ViewBag.sitio.linkedin' target='_blank'><i class='fab fa-linkedin-in'></i></a>
+                  </li>
+                }
+                @if (ViewBag.sitio.tiktok != "")
+                {
+                  <li class='topbar-one__social-item'>
+                    <a href='@ViewBag.sitio.tiktok' target='_blank'><i class='fab fa-tiktok'></i></a>
+                  </li>
+                }
+          </ul>" data-bs-html="true" href="javascript:void(0)" class="topbar-one__social-link text-white"><i
+                    class="fas fa-plus-square"></i></a>
+              </li>
+            </ul><!-- /.topbar-one__social -->
+          </div><!-- /.topbar-one__right -->
+        </div><!-- /.topbar-one__inner -->
+      </div><!-- /.ctopbar-one__contaner -->
+    </div><!-- /.topbar-one -->
+
+
+    <header class="main-header sticky-header sticky-header--normal">
+      <div class="container">
+        <div class="main-header__inner">
+          <div class="main-header__left">
+            <div class="main-header__logo">
+              <a href="/">
+                <img alt="Logo" src="/assets/images/logo-light.png" width="146">
+              </a>
+            </div><!-- /.main-header__logo -->
+            <nav class="main-header__nav main-menu">
+              <ul class="main-menu__list">
+
+
+                <li>
+                  <a href="/">Inicio</a>
+                </li>
+
+                <li class="dropdown">
+                  <a href="javascript:void(0)">Experiencias</a>
+                  <ul class="sub-menu">
+                    <li><a href="{{route('experiencias">Ver todas</a></li>
+                    @foreach (var categoria in ViewBag.categories)
+                    {
+                      <li><a href="@categoria.url">@categoria.name</a></li>
+                    }
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="/galeria">Galería</a>
+                </li>
+
+                <li>
+                  <a href="/nosotros">Nosotros</a>
+                </li>
+
+                <li>
+                  <a href="/contacto">Contacto</a>
+                </li>
+
+              </ul>
+            </nav><!-- /.main-header__nav -->
+          </div><!-- /.main-header__left -->
+
+          <div class="main-header__right">
+            <div class="mobile-nav__btn mobile-nav__toggler">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div><!-- /.mobile-nav__toggler -->
+            <div class="main-header__right-right">
+              <div class="main-header__phone">
+                <div class="main-header__phone-icon">
+                  <span class="icon-phone-1"></span>
+                </div>
+                <div class="main-header__phone-text">
+                  <p class="main-header__phone-title">Llámenos</p>
+                  <h4 class="main-header__phone-number"><a
+                      href="tel:@ViewBag.sitio.phoneContact">@ViewBag.sitio.phoneContact</a></h4>
+                </div>
+              </div><!-- /.main-header__phone -->
+              <div class="main-header__divider"></div>
+              <ul class="main-header__search-user">
+                <li class="main-header__search-user-item">
+                  <select id="currency" class="form-control">
+                    @foreach (var cur in ViewBag.currencies)
+                    {
+                      <option value="@cur.currency.id">
+                        @cur.currency.name
+                      </option>
+                    }
+                  </select>
+                </li>
+              </ul><!-- /.main-header__search-user -->
+            </div><!-- /.main-header__right-right -->
+          </div><!-- /.main-header__right -->
+        </div><!-- /.main-header__inner -->
+      </div><!-- /.container-fluid -->
+    </header><!-- /.main-header -->
 
     @RenderBody()
 
+    <footer class="main-footer correcion-background-20 @@extraClassName">
+      <!-- /.main-footer__bg -->
+      <div class="container">
+        <div class="main-footer__top row">
+          <div class="col-lg-4 col-sm-5">
+            <div class="main-footer__logo-box">
+              <img src="/assets/images/footer-logo-dark.png" width="146" alt="Logo" class="main-footer__logo">
+            </div><!-- /.main-footer__logo-box -->
+          </div>
+          <div class="col-lg-8 col-sm-7">
+            <ul class="main-footer__social flex-wrap">
+              @if (ViewBag.sitio.facebook != "")
+              {
+                <li class="main-footer__social-item">
+                  <a target="_blank" href="@ViewBag.sitio.facebook" class="main-footer__social-link"><i
+                      class="fab fa-facebook-f"></i></a>
+                </li>
+              }
+              @if (ViewBag.sitio.twitter != "")
+              {
+                <li class="main-footer__social-item">
+                  <a target="_blank" href="@ViewBag.sitio.twitter" class="main-footer__social-link"><i
+                      class="fab fa-twitter"></i></a>
+                </li>
+              }
+              @if (ViewBag.sitio.google != "")
+              {
+                <li class="main-footer__social-item">
+                  <a target="_blank" href="@ViewBag.sitio.google" class="main-footer__social-link"><i
+                      class="fab fa-google"></i></a>
+                </li>
+              }
+              @if (ViewBag.sitio.instagram != "")
+              {
+                <li class="main-footer__social-item">
+                  <a target="_blank" href="@ViewBag.sitio.instagram" class="main-footer__social-link"><i
+                      class="fab fa-instagram"></i></a>
+                </li>
+              }
+              @if (ViewBag.sitio.pinterest != "")
+              {
+                <li class="main-footer__social-item">
+                  <a target="_blank" href="@ViewBag.sitio.pinterest" class="main-footer__social-link"><i
+                      class="fab fa-pinterest-p"></i></a>
+                </li>
+              }
+              @if (ViewBag.sitio.youtube != "")
+              {
+                <li class="main-footer__social-item">
+                  <a target="_blank" href="@ViewBag.sitio.youtube" class="main-footer__social-link"><i
+                      class="fab fa-youtube"></i></a>
+                </li>
+              }
+              @if (ViewBag.sitio.linkedin != "")
+              {
+                <li class="main-footer__social-item">
+                  <a target="_blank" href="@ViewBag.sitio.linkedin" class="main-footer__social-link"><i
+                      class="fab fa-linkedin-in"></i></a>
+                </li>
+              }
+              @if (ViewBag.sitio.whatsapp != "")
+              {
+                <li class="main-footer__social-item">
+                  <a target="_blank" href="@ViewBag.sitio.whatsapp" class="main-footer__social-link"><i
+                      class="fab fa-whatsapp"></i></a>
+                </li>
+              }
+              @if (ViewBag.sitio.tiktok != "")
+              {
+                <li class="main-footer__social-item">
+                  <a target="_blank" href="@ViewBag.sitio.tiktok" class="main-footer__social-link"><i
+                      class="fab fa-tiktok"></i></a>
+                </li>
+              }
+            </ul><!-- /.main-footer__logo-box -->
+          </div>
+          <div class="col-12">
+            <div class="main-footer__line"></div><!-- /.main-footer__line -->
+          </div><!-- /.col-12 -->
+        </div><!-- /.main-footer__top -->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="footer-widget footer-widget--links">
+              <h2 class="footer-widget__title">Menú</h2><!-- /.footer-widget__title -->
+              <ul class="footer-widget__links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/experiencias">Experiencias</a></li>
+                <li><a href="/galeria">Galería</a></li>
+                <li><a href="/blog">Blog</a></li>
+              </ul><!-- /.footer-widget__links -->
+            </div><!-- /.footer-widget -->
+          </div><!-- /.col-md-6 -->
+          <div class="col-md-4">
+            <div class="footer-widget footer-widget--links">
+              <h2 class="footer-widget__title">Otros links</h2><!-- /.footer-widget__title -->
+              <ul class="footer-widget__links">
+                <li><a href="/nosotros">Nosotros</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+                <li><a href="/terminos-condiciones">Términos y condiciones</a></li>
+                <li><a href="/aviso-privacidad">Aviso de privacidad</a></li>
+              </ul><!-- /.footer-widget__links -->
+            </div><!-- /.footer-widget -->
+          </div><!-- /.col-md-6 -->
+          <div class="col-md-4">
+            <div class="footer-widget footer-widget--contact">
+              <h2 class="footer-widget__title">Contáctanos</h2><!-- /.footer-widget__title -->
+              <p class="footer-widget__address">Dirección Temporal</p>
+              <ul class="footer-widget__info">
+                <li> <span class="icon-phone-1"></span> <a
+                    href="tel:@ViewBag.sitio.phoneContact">@ViewBag.sitio.phoneContact</a></li>
+                <li> <span class="icon-envelope"></span> <a
+                    href="mailto:@ViewBag.sitio.emailContact">@ViewBag.sitio.emailContact</a></li>
+              </ul><!-- /.footer-widget__info -->
+            </div><!-- /.footer-widget -->
+          </div><!-- /.col-md-6 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+      <div class="main-footer__bottom">
+        <div class="container">
+          <div class="main-footer__bottom-inner copyright_pedrito">
+            <p>Copyright</p>
+            @ViewBag.sitio.copyright
+            <div>Hecho por <b><a href="https://wintercr.com/" target="_blank"
+                  style="color:var(--trevlo-secondary)">Pedro León <span class="ms-1 icon-heart"
+                    style="color: var(--trevlo-base, #FF5956)"></span></a></b></div>
+          </div><!-- /.main-footer__inner -->
+        </div><!-- /.container -->
+      </div><!-- /.main-footer__bottom -->
+    </footer><!-- /.main-footer -->
 
-    @RenderSection("scripts", required: false)
+  </div><!-- /.page-wrapper -->
+
+  <div class="mobile-nav__wrapper">
+    <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+    <!-- /.mobile-nav__overlay -->
+    <div class="mobile-nav__content">
+      <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+      <div class="logo-box">
+        <a href="/" aria-label="logo image"><img alt="Logo" src="/assets/images/logo-dark.png" width="155" /></a>
+      </div>
+      <!-- /.logo-box -->
+      <div class="mobile-nav__container"></div>
+      <!-- /.mobile-nav__container -->
+
+      <ul class="mobile-nav__contact list-unstyled">
+        <li>
+          <select id="currency2" onchange="changeCurrency(value)" class="form-control correcion-pedrito-4">
+            @foreach (var cur in ViewBag.currencies)
+            {
+              <option value="@cur.currency.id">
+                @cur.currency.name
+              </option>
+            }
+          </select>
+        </li>
+        <!-- <li>
+          <i class="fa fa-envelope"></i>
+          <a href="mailto:needhelp@trevlo.com">needhelp@trevlo.com</a>
+        </li> -->
+      </ul><!-- /.mobile-nav__contact -->
+      <div class="mobile-nav__social flex-wrap">
+        @if (ViewBag.sitio.facebook != "")
+        {
+          <a target="_blank" href="@ViewBag.sitio.facebook">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            <span class="sr-only">Facebook</span>
+          </a>
+        }
+        @if (ViewBag.sitio.twitter != "")
+        {
+          <a target="_blank" href="@ViewBag.sitio.twitter">
+            <i class="fab fa-twitter" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span>
+          </a>
+        }
+        @if (ViewBag.sitio.google != "")
+        {
+          <a target="_blank" href="@ViewBag.sitio.google">
+            <i class="fab fa-google" aria-hidden="true"></i>
+            <span class="sr-only">Google</span>
+          </a>
+        }
+        @if (ViewBag.sitio.instagram != "")
+        {
+          <a target="_blank" href="@ViewBag.sitio.instagram">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+            <span class="sr-only">Instagram</span>
+          </a>
+        }
+        @if (ViewBag.sitio.pinterest != "")
+        {
+          <a target="_blank" href="@ViewBag.sitio.pinterest">
+            <i class="fab fa-pinterest-p" aria-hidden="true"></i>
+            <span class="sr-only">Pinterest</span>
+          </a>
+        }
+        @if (ViewBag.sitio.youtube != "")
+        {
+          <a target="_blank" href="@ViewBag.sitio.youtube">
+            <i class="fab fa-youtube" aria-hidden="true"></i>
+            <span class="sr-only">Youtube</span>
+          </a>
+        }
+        @if (ViewBag.sitio.linkedin != "")
+        {
+          <a target="_blank" href="@ViewBag.sitio.linkedin">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+            <span class="sr-only">Linkedin</span>
+          </a>
+        }
+        @if (ViewBag.sitio.whatsapp != "")
+        {
+          <a target="_blank" href="@ViewBag.sitio.whatsapp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            <span class="sr-only">Whatsapp</span>
+          </a>
+        }
+        @if (ViewBag.sitio.tiktok != "")
+        {
+          <a target="_blank" href="@ViewBag.sitio.tiktok">
+            <i class="fab fa-tiktok" aria-hidden="true"></i>
+            <span class="sr-only">Tiktok</span>
+          </a>
+        }
+      </div><!-- /.mobile-nav__social -->
+    </div>
+    <!-- /.mobile-nav__content -->
+  </div>
+  <!-- /.mobile-nav__wrapper -->
+  <div class="search-popup">
+    <div class="search-popup__overlay search-toggler"></div>
+    <!-- /.search-popup__overlay -->
+    <div class="search-popup__content">
+      <form role="search" method="get" class="search-popup__form" action="#">
+        <input type="text" id="search" placeholder="Search Here..." />
+        <button type="submit" aria-label="search submit" class="search-popup__btn trevlo-btn trevlo-btn--base">
+          <span class="icon-search"></span>
+        </button>
+      </form>
+    </div>
+    <!-- /.search-popup__content -->
+  </div>
+  <!-- /.search-popup -->
+
+  <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+    <span class="scroll-to-top__text">Ir arriba</span>
+    <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
+  </a>
+
+  <a target="_blank" href="@ViewBag.sitio.whatsapp" class="btn btn-primary d-block boton-whatsapp-filtros">
+    <i class="fab fa-whatsapp" style="margin-top: 14px;"></i>
+  </a>
+
+  <script src="/assets/vendors/jquery/jquery-3.7.0.min.js"></script>
+  <script src="/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+  <script src="/assets/vendors/jarallax/jarallax.min.js"></script>
+  <script src="/assets/vendors/jquery-ui/jquery-ui.js"></script>
+  <script src="/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+  <script src="/assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+  <script src="/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+  <script src="/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="/assets/vendors/jquery-validate/jquery.validate.min.js"></script>
+  <script src="/assets/vendors/nouislider/nouislider.min.js"></script>
+  <script src="/assets/vendors/tiny-slider/tiny-slider.js"></script>
+  <script src="/assets/vendors/wnumb/wNumb.min.js"></script>
+  <script src="/assets/vendors/owl-carousel/js/owl.carousel.min.js"></script>
+  <script src="/assets/vendors/wow/wow.js"></script>
+  <script src="/assets/vendors/tilt/tilt.jquery.js"></script>
+  <script src="/assets/vendors/simpleParallax/simpleParallax.min.js"></script>
+  <script src="/assets/vendors/imagesloaded/imagesloaded.min.js"></script>
+  <script src="/assets/vendors/isotope/isotope.js"></script>
+  <script src="/assets/vendors/countdown/countdown.min.js"></script>
+  <script src="/assets/vendors/daterangepicker-master/moment.min.js"></script>
+  <script src="/assets/vendors/daterangepicker-master/daterangepicker.js"></script>
+  <script src="/assets/vendors/jquery-circleType/jquery.circleType.js"></script>
+  <script src="/assets/vendors/jquery-lettering/jquery.lettering.min.js"></script>
+  <!-- template js -->
+  <script src="/assets/js/trevlo.js"></script>
+  <script src="/assets/js/customFunctions.js"></script>
+
+  <script>
+    const superpopover = document.querySelector("#superpopover")
+    if (typeof superpopover !== "undefined") {
+      new bootstrap.Popover(superpopover)
+    }
+  </script>
+
+  @RenderSection("scripts", required: false)
 </body>
 
 </html>
