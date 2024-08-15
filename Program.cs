@@ -7,7 +7,7 @@ var mvcBuilder = builder.Services.AddControllersWithViews(options =>
     options.Filters.Add<GlobalActionFilter>();
 });
 if (builder.Environment.IsDevelopment()) mvcBuilder.AddRazorRuntimeCompilation();
-builder.Services.AddHttpClient("client", x => { x.BaseAddress = new Uri("http://localhost:7283/api/"); });
+builder.Services.AddHttpClient("client", x => { x.BaseAddress = new Uri($"{builder.Configuration["Settings:BaseAPIURL"]}/"); });
 
 //App
 var app = builder.Build();

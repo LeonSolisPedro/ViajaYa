@@ -1,5 +1,5 @@
 <h1>Galería</h1>
 
 @foreach(var imagen in ViewBag.imagenes){
-  <img src="http://localhost:7283@(imagen.imageThumbnail)" />
+  <img src="@(ViewBag.urlImage)@(imagen.imageThumbnail)" />
 }

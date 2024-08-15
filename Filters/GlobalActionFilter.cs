@@ -7,10 +7,12 @@ namespace Web.Filters;
 public class GlobalActionFilter : IAsyncActionFilter
 {
   private readonly IHttpClientFactory _factory;
+  private readonly IConfiguration _configuration;
 
-  public GlobalActionFilter(IHttpClientFactory factory)
+  public GlobalActionFilter(IHttpClientFactory factory, IConfiguration configuration)
   {
     _factory = factory;
+    _configuration = configuration;
   }
 
   public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
@@ -41,6 +43,9 @@ public class GlobalActionFilter : IAsyncActionFilter
         controller.ViewBag.sitio = data1;
         controller.ViewBag.currencies = data2;
         controller.ViewBag.categories = data3;
+
+        var urlImage = _configuration.GetSection("Settings")["BaseURLImage"];
+        controller.ViewBag.urlImage = urlImage;
       }
     }
   }
