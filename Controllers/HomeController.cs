@@ -17,14 +17,47 @@ public class HomeController : Controller
         return View();
     }
 
+    public async Task<IActionResult> Galeria()
+    {
+        var client = _factory.CreateClient("client");
+        var response = await client.GetAsync("v1/Gallery/GetGalleries");
+        var json = await response.Content.ReadAsStringAsync();
+        dynamic? data = JsonConvert.DeserializeObject(json);
+        ViewBag.imagenes = data;
+        return View("galeria");
+    }
 
-    public async Task<IActionResult> Privacy()
+    public IActionResult Nosotros()
+    {
+        return View("nosotros");
+    }
+
+
+    public IActionResult Contacto()
+    {
+        return View("contacto");
+    }
+
+    [Route("terminos-condiciones")]
+    public async Task<IActionResult> Terminos()
+    {
+        var client = _factory.CreateClient("client");
+        var response = await client.GetAsync("v1/Terms/TermsCondition");
+        var json = await response.Content.ReadAsStringAsync();
+        dynamic? data = JsonConvert.DeserializeObject(json);
+        ViewBag.terminosCondiciones = data?.text;
+        return View("terminos-condiciones");
+    }
+
+
+    [Route("aviso-privacidad")]
+    public async Task<IActionResult> Privacidad()
     {
         var client = _factory.CreateClient("client");
         var response = await client.GetAsync("v1/Terms/PrivacyNotice");
         var json = await response.Content.ReadAsStringAsync();
-        dynamic obj = JsonConvert.DeserializeObject(json);
-        ViewBag.aviso = obj.text;
-        return View();
+        dynamic? data = JsonConvert.DeserializeObject(json);
+        ViewBag.avisoPrivacidad = data?.text;
+        return View("aviso-privacidad");
     }
 }

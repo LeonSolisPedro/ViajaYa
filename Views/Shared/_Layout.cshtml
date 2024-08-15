@@ -1,15 +1,41 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    @RenderSection("metaSEO", required: false)
+    @RenderSection("css", required: false)
 </head>
+
 <body>
+
     <nav style="display: flex;">
-        <ul><li><a href="/">Inicio</a></li></ul>
-        <ul><li><a href="/Home/Privacy">Privacidad @ViewBag.nose.location</a></li></ul>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+        </ul>
+        <ul>
+            <li><a href="/galeria">Galería</a></li>
+        </ul>
+        <ul>
+            <li><a href="/contacto">Contacto</a></li>
+        </ul>
+        <ul>
+            <li><a href="/nosotros">Nosotros</a></li>
+        </ul>
+        <ul>
+            <li><a href="/terminos-condiciones">Términos</a></li>
+        </ul>
+        <ul>
+            <li><a href="/aviso-privacidad">Privacidad</a></li>
+        </ul>
+        
     </nav>
+
     @RenderBody()
+
+
+    @RenderSection("scripts", required: false)
 </body>
+
 </html>
