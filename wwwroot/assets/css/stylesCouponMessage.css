@@ -1,0 +1,124 @@
+#currency{
+    display: none;
+}
+
+#currency2 {
+    display: none;
+}
+
+.containerCupones {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.comprobarValidateCupon {
+    border: none; 
+    border-radius: 5px; 
+    margin: 0 4px;
+    background-color: #5AA469;
+    padding: 5px;
+    height: 28px;
+}
+
+.mensajeStyleCupon {
+    padding: 2px 10px;
+    background-color: #B31312;;
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+}
+.backgroundValid {
+    background-color: #5AA469;
+}
+.backgroundNotValid {
+    background-color: #B31312;
+}
+
+.containerTheMessageCuponResponse {
+    background-color: green;
+    color: white;
+    text-align: center;
+    border-radius: 5px; 
+    width: auto;
+    padding: 0px 4px;
+    margin: 0;
+    height: min-content;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    padding: 2px 7px;
+}
+
+.comprobarValidateCupon > li, .comprobarValidateCupon {
+    color: #fff;
+}
+
+#mensajeSuccesInformationCoupon {
+    color: #fff;
+}
+
+#mensajeSucces {
+    color: #fff;
+    margin: 0;
+}
+
+@media(max-width: 448px) {
+    .mensajeStyleCupon {
+        max-width: 373px;
+    }
+}
+
+@media(max-width: 419px) {
+    .containerTheMessageCuponResponse {
+        max-width: 345px;
+    }
+}
+
+@media(max-width: 386px) {
+    .containerTheMessageCuponResponse {
+        max-width: 336px;
+    }
+}
+
+@media(max-width: 376px) {
+    .containerTheMessageCuponResponse {
+        max-width: 325px;
+    }
+}
+
+@media(max-width: 300px) {
+    .containerTheMessageCuponResponse {
+        max-width: 250px;
+    }
+}
+@media(max-width: 400px) {
+    .comprobarValidateCupon {
+        width: 120px;
+        height: 28px;
+    }
+    .containerCupones {
+        /* flex-direction: column; */
+    }
+    .mensajeStyleCupon {
+        max-width: 330px;
+    }
+}
+
+@media(max-width: 330px) {
+    .mensajeStyleCupon {
+        max-width: 257px;
+    }
+}
+
+@media(max-width: 300px) {
+    .mensajeStyleCupon {
+        max-width: 237px;
+    }
+}

@@ -1,0 +1,31 @@
+.messageGroup {
+    padding: 10px;
+    background-color: #38419D;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.messageGroup > i, .messageGroupError > i, .messageGroupCompleted > i, .messageGroupAccept > i {
+    margin-right: 4px;
+}
+
+.messageGroupError {
+    padding: 10px;
+    background-color: #B80000;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.messageGroupAccept {
+    padding: 10px;
+    background-color: #C21292;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.messageGroupCompleted {
+    padding: 10px;
+    background-color: #65B741;
+    color: #fff;
+    border-radius: 3px;
+}

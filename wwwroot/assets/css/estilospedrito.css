@@ -1,0 +1,546 @@
+/* =================== Todos =================== */
+
+:root {
+  --colorbotonfiltros: rgb(242,154,46, 0.6);
+  --totalcolor: #5E314E;
+}
+
+header {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+
+@media (min-width: 1400px) and (max-width: 1480px){
+  .correcion-pedrito-666 {
+    width: 100px;
+  }
+}
+@media (max-width: 1799px) {
+  .main-header__logo {
+    margin-right: 40px !important;
+  }
+}
+@media (max-width: 1399px) {
+  .main-header__logo {
+    margin-right: 40px !important;
+  }
+}
+
+.main-menu .main-menu__list > li > a {
+  font-size: 15px;
+}
+
+.colorblancohome .nav-link:not(.active) {
+  color: white;
+}
+
+.select2-selection__rendered {
+  line-height: 34px !important;
+}
+
+.select2-container .select2-selection--single {
+  height: 38px !important;
+}
+
+.select2-selection__arrow {
+  height: 37px !important;
+}
+
+.select2-selection { border: var(--bs-border-width) solid var(--bs-border-color) !important;}
+
+.webkit-line-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.webkit-line-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.webkit-line-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.webkit-line-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.correcion-pedrito-4 {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.correcion-background-20 {
+  background: linear-gradient(#092949E6, #092949E6),url(../images/imagenespedrito/superfooter.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.copyright_pedrito {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--trevlo-font, "DM Sans", sans-serif) !important;
+  font-size: var(--trevlo-size-2xl, 16px) !important;
+  color: var(--trevlo-secondary, #736D75) !important;
+  line-height: 1.875 !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+}
+
+
+.copyright_pedrito p {
+  font-family: var(--trevlo-font, "DM Sans", sans-serif) !important;
+  font-size: var(--trevlo-size-2xl, 16px) !important;
+  color: var(--trevlo-secondary, #736D75) !important;
+  line-height: 1.875 !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+}
+
+@media(max-width: 881px) {
+  .copyright_pedrito {
+    flex-direction: column;
+  }
+}
+
+
+.oculto {
+  display: none !important;
+}
+
+.campoReserva,
+.campoReservaHorario {
+  display: none;
+}
+
+.boton-whatsapp-filtros {
+  position: fixed;
+  bottom: 23px;
+  right: 15px;
+  z-index: 50;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  background-color: #128C7E !important;
+  font-size: 20px;
+  border: none;
+  padding: 0;
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  bottom: 125px;
+}
+
+
+.tour-listing-one__carousel .owl-stage{
+  display: flex;
+}
+
+
+.footer-widget__links a, .footer-widget__address, .footer-widget__info a {
+  color: var(--trevlo-white, #ffffff) !important;
+}
+
+
+/* ================== Index ================= */
+
+
+.correcion-pedrito-78 {
+  font-family: var(--trevlo-font, "DM Sans", sans-serif);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+
+.destination-one__card-img--round {
+  width: 270px;
+  height: 270px;
+  object-fit: cover;
+}
+
+
+.imagen-promocion-index {
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+
+.correcion-pedrito-102 {
+  width: 200px !important;
+  height: 200px;
+  object-fit: contain;
+}
+
+
+.imagen-certificaciones {
+  background: url(https://fastly.picsum.photos/id/377/200/300.jpg?hmac=veEWg3ApI7rkKqMF6MuaWBmxPgnEe-Ar9eDdMG3q-kk);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 98px;
+}
+
+
+.blog-card__image {
+  aspect-ratio: 74 / 99;
+  object-fit: cover;
+}
+
+.correcion-pedrito-32 {
+  aspect-ratio: 370 / 199;
+  object-fit: cover;
+}
+
+
+.tour-listing-details__info-area {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* ================= Lista de hoteles ============= */
+
+.color-amarillo-hotel {
+  color: var(--trevlo-base, #FF5956);
+}
+
+.color-normal-hotel {
+  color: var(--trevlo-secondary, #736D75)
+}
+
+
+#hotelesEncontrados {
+  font-size: var(--trevlo-size-4xl, 20px);
+    line-height: 1.3;
+    margin-bottom: 0;
+    font-family: var(--trevlo-font, "DM Sans", sans-serif);
+    color: var(--trevlo-primary, #2D2330);
+    font-weight: 700;
+}
+
+/* ====================== Estilos hermar =================== */
+
+/* ESTILOS PARA TABLA HABITACIONES MOVIL */
+.habitacionesMovilContenedor {
+  display: none;
+}
+
+.habitacionesMovilContenedor .listahabitaciones ul {
+  list-style: none
+}
+
+@media(max-width:991px) {
+  #table-precios {
+      display: none;
+  }
+
+  .habitacionesMovilContenedor {
+      display: block;
+  }
+
+  .btn-normal-4 {
+      width: 100%;
+  }
+
+  .contenedorTabla {
+      display: none;
+  }
+
+  .listaHabitaciones {
+      border: 1px solid #afafaf;
+      /* margin-bottom: 30px; */
+      padding: 20px;
+  }
+}
+
+@media(max-width:612px) {
+  .habitacionesMovilContenedor {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      place-content: center;
+  }
+}
+
+@media(max-width:467px) {
+
+  .habitacionesMovilContenedor {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      place-content: center;
+  }
+}
+
+
+/* =============== Detalle experiencia ============= */
+
+.correcion-pedrito-6 {
+  line-height: 24px;
+  height: 34px;
+}
+
+.corrrecion-pedrito-49 {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.supervideo-pedrito {
+  width: 85%;
+  aspect-ratio: 16/9;
+  margin: 0 auto;
+  margin-bottom: 44px;
+  display: block;
+}
+
+
+@media (max-width: 768px) {
+  .supervideo-pedrito {
+    width: 100%;
+  }
+}
+
+
+form #total {
+  background: none;
+  font-weight: 700;
+  border: 0;
+  color: var(--totalcolor);
+  width: 100%;
+}
+
+
+#loadingPrices img {
+  height: 88px;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.tooltip-inner ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+
+/* ====================== lazy load ====================== */
+
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+.skeleton-w100 {
+  width: 100%;
+  color: transparent !important;
+  border: unset !important;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+
+.skeleton {
+  color: transparent !important;
+  border: unset !important;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+
+.skeleton-w100 *,
+.skeleton * {
+  visibility: hidden;
+}
+
+/* ====================== Filtros ====================== */
+
+
+#planAlimentos,
+#cantEstrellas {
+  list-style: none;
+}
+
+#tipoTour li {
+  margin: 0.5rem;
+}
+
+.active-nav {
+  transform: translateX(0%) !important;
+}
+
+@media (max-width: 1200px) {
+  .fix-filtros-none {
+    display: none;
+  }
+
+  .body-overflow-filtros {
+    overflow: hidden !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #filtros-nav {
+    top: 0;
+    left: 0;
+    height: 100%;
+    position: fixed !important;
+    transform: translateX(-100%);
+    z-index: 10000;
+    overflow-x: hidden;
+    transition: 0.5s;
+    width: 100%;
+    background-color: white;
+  }
+
+  #filtros-nav .tour-listing-sidebar__form {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  #close-nav {
+    display: block !important;
+  }
+
+  .ui-autocomplete {
+    z-index: 10006 !important;
+  }
+
+}
+
+#ui-id-1 {
+  overflow-y: scroll;
+  width: 80% !important;
+  max-width: 350px;
+  max-height: 280px !important;
+}
+
+.botoncito-filtros {
+  position: fixed;
+  bottom: 23px;
+  right: -1px;
+  transform: translateX(-50%);
+  z-index: 80000;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  background-color: var(--colorbotonfiltros) !important;
+  font-size: 20px;
+  border: none;
+  right: 50%;
+  margin-right: -50px;
+  padding: 0;
+}
+
+.botoncito-filtros:hover {
+  background-color: var(--colorbotonfiltros) !important;
+}
+
+/* ================ Motor pedrito ================== */
+
+/* Se resetean valores */
+#motor-pedrito-1 form {
+  padding: 0;
+  margin: 0;
+}
+
+#motor-pedrito-1 [class*="col-"] {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+/* Se vuelen a quedar bien */
+#motor-pedrito-1 form {
+  padding-top: 20px;
+  padding-bottom: 22px;
+}
+#motor-pedrito-1 [class*="col-"] {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.correcion-pedrito-37 {
+  margin-left: 0px !important;
+  width: 144px !important;
+  height: 68px !important;
+}
+@media (max-width: 1200px) {
+  .correcion-pedrito-37 {
+    width: 112px !important;
+  }
+}
+@media (max-width: 992px) {
+  .correcion-pedrito-37 {
+    width: 78px !important;
+  }
+}
+@media (max-width: 768px) {
+  .correcion-pedrito-37 {
+      width: 100% !important;
+      height: 47px !important;
+      margin-top: 15px;
+  }
+}
+
+/* =================== Galeria, Nosotros, Circuitos, Etc... =================== */
+
+.gallery-single__img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+
+
+.correcion-pedrito-1 {
+  margin-top: 50px;
+  margin-bottom: 91px;
+}
+
+.correcion-pedrito-2 {
+  margin-bottom: 91px;
+}
+
+
+.correcion-pedrito-3 {
+  font-family: var(--trevlo-font, "DM Sans", sans-serif) !important;
+}
+
+.correcion-blog-103 {
+  display: flex;
+  gap: 26px;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+  font-size: 21px;
+}
+
+
+.imagen-banner-blog {
+  aspect-ratio: 16/5;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+@media (max-width: 767px) {
+  .imagen-banner-blog {
+    aspect-ratio: 3/2;
+  }
+}
