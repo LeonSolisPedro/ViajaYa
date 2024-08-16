@@ -1,5 +1,28 @@
-﻿<h1>Privacidad</h1>
+﻿@section metaSEO {
+    <title>Aviso De Privacidad - @ViewBag.nameAgency</title>
+    <meta name="description" content="Tu privacidad es fundamental para nosotros. por ello, te invitamos a leer nuestra política de privacidad para conocer cómo protegemos tus datos mientras conoces cada uno de nuestros tours.">
+    <meta name="keywords" content="Privacidad, Tours, AME Viajar, Política, Viajes, Vuelos, Lugares, Avisos del Viaje, Condiciones del Viaje, Responsabilidad, Acuerdo legal, Información Importante, Reglas de Viaje"> 
+}
 
-<div>
-  @Html.Raw(ViewBag.avisoPrivacidad)
-</div>
+<section class="page-header">
+  <div class="page-header__bg" style="background-image: url(/assets/images/imagenespedrito/aviso-privacidad.webp);"></div>
+  <div class="container">
+    <h2 class="page-header__title">Aviso de privacidad</h2>
+  </div>
+</section>
+
+<!-- Gallery Page Start -->
+<div class="gallery-page section-space">
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-12 mt-0">
+        @Html.Raw(ViewBag.avisoPrivacidad)
+      </div>
+
+
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</div><!-- /.gallery-page -->
+<!-- Gallery Page End -->

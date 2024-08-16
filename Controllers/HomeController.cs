@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Web.Models;
 
 namespace Web.Controllers;
 
@@ -36,6 +37,29 @@ public class HomeController : Controller
     public IActionResult Contacto()
     {
         return View("contacto");
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Route("gracias-email")]
+    public async Task<IActionResult> Gracias(Contacto model)
+    {
+        if (!ModelState.IsValid)
+        {
+            TempData["ErrorMessage"] = "Favor de completar el formulario";
+            return RedirectToAction("Contacto");
+        }
+        var client = _factory.CreateClient("client");
+        var response = await client.PostAsJsonAsync("v1/Contact/SendInfo", model);
+        var json = await response.Content.ReadAsStringAsync();
+        dynamic? data = JsonConvert.DeserializeObject(json);
+        bool isSuccess = data?.success ?? false;
+        if (!isSuccess)
+        {
+            TempData["ErrorMessage"] = "Ocurrió un error";
+            return RedirectToAction("Contacto");
+        }
+        return View("gracias-email");
     }
 
     [Route("terminos-condiciones")]

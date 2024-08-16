@@ -46,6 +46,9 @@ public class GlobalActionFilter : IAsyncActionFilter
 
         var urlImage = _configuration.GetSection("Settings")["BaseURLImage"];
         controller.ViewBag.urlImage = urlImage;
+
+        var nameAgency = _configuration.GetSection("Settings")["NameAgency"];
+        controller.ViewBag.nameAgency = nameAgency;
       }
     }
   }

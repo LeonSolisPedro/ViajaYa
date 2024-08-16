@@ -1,1 +1,122 @@
-<h1>Contacto</h1>
+@section metaSEO {
+  <title>Contacto - @ViewBag.nameAgency</title>
+  <meta name="description" content="Contacta con nosotros mediante nuestro formulario de contacto para cualquier duda o pregunta a cerca de nuestros tours. Nos pondremos en contacto contigo lo más antes posible AME Viajar.">
+  <meta name="keywords" content="Contacto, Comunicarte, Atención, Comunicate, Envia un Correo, Mensaje, Clientes, Usuarios, Agencia, AME Viajar">
+}
+
+
+<section class="page-header">
+  <div class="page-header__bg" style="background-image: url(/assets/images/imagenespedrito/contacto.webp);"></div>
+  <!-- /.page-header__bg -->
+  <div class="container">
+    <h2 class="page-header__title">Contáctanos</h2>
+  </div><!-- /.container -->
+</section><!-- /.page-header -->
+
+<!-- Contact Page Start -->
+<section class="contact-page section-space-top">
+
+  <div class="contact-page__info mb-0">
+    <div class="contact-page__info-container container correcion-pedrito-1">
+      <div class="contact-page__info-top">
+        <p class="contact-page__info-top-title correcion-pedrito-3">Información de contacto</p>
+      </div><!-- /.contact-page__info-top -->
+      <div class="contact-page__info-row row">
+        <div class="col-lg-4">
+          <div class="contact-page__info-box">
+            <div class="contact-page__info-icon-box">
+              <span class="icon-phone-1"></span>
+            </div>
+            <div class="contact-page__info-text-box">
+              <p class="contact-page__info-title">Llámenos</p>
+              <a href="tel:@ViewBag.sitio.phoneContact">
+                <h4 class="contact-page__info-text contact-page__info-text-link">@ViewBag.sitio.phoneContact</h4>
+              </a>
+            </div>
+          </div><!-- /.contact-page__info-box -->
+        </div>
+        <div class="col-lg-3">
+          <div class="contact-page__info-box">
+            <div class="contact-page__info-icon-box">
+              <span class="icon-envelope"></span>
+            </div>
+            <div class="contact-page__info-text-box">
+              <p class="contact-page__info-title">Envíenos un correo</p>
+              <a href="mailto:@ViewBag.sitio.emailContact">
+                <h4 class="contact-page__info-text contact-page__info-text-link text-break">@ViewBag.sitio.emailContact
+                </h4>
+              </a>
+            </div>
+          </div><!-- /.contact-page__info-box -->
+        </div>
+        <div class="col-lg-5">
+          <div class="contact-page__info-box contact-page__info-box--three">
+            <div class="contact-page__info-icon-box">
+              <span class="icon-location-1"></span>
+            </div>
+            <div class="contact-page__info-text-box">
+              <p class="contact-page__info-title">Visítenos</p>
+              <h4 class="contact-page__info-text">@ViewBag.sitio.location</h4>
+            </div>
+          </div><!-- /.contact-page__info-box -->
+        </div>
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+  </div>
+
+  <div class="container correcion-pedrito-2">
+    <div class="sec-title text-center">
+
+      <p class="sec-title__tagline">Contáctanos</p><!-- /.sec-title__tagline -->
+
+      <h2 class="sec-title__title">Siéntete libre de contactarnos</h2><!-- /.sec-title__title -->
+    </div><!-- /.sec-title --><!-- /.sec-title -->
+    <form action="/gracias-email" method="POST"
+      class="form-horizontal contact-page__form form-one row justify-content-center gutter-20">
+      @Html.AntiForgeryToken()
+      @{
+        await Html.RenderPartialAsync("contactoForm");
+      }
+      <div class="col-12">
+        <div class="form-one__btn-box">
+          <button type="submit" class="form-one__btn trevlo-btn trevlo-btn--base"><span>Enviar mensaje</span></button>
+        </div><!-- /.form-one__btn-box -->
+      </div><!-- /.col-12-->
+    </form><!-- /.row -->
+  </div><!-- /.container -->
+
+  <!-- /.google-map -->
+</section>
+<!-- Contact Page End -->
+
+
+@section css {
+  <style>
+    .form-horizontal input,
+    .form-horizontal textarea {
+      font-family: var(--trevlo-font, "DM Sans", sans-serif);
+      font-size: var(--trevlo-size-2xl, 16px);
+      font-weight: 500;
+      color: var(--trevlo-secondary, #736D75);
+      line-height: 1;
+      color: var(--trevlo-secondary, #736D75);
+      border: none;
+      outline: none;
+      background-color: transparent;
+      width: 100%;
+      height: 60px;
+      background-color: var(--trevlo-white2, #FAF5EE);
+      padding: 20px 30px 20px 30px;
+      border-radius: 6px;
+    }
+
+    .form-horizontal textarea {
+      height: 176px;
+    }
+
+
+    .form-horizontal .row {
+      margin-top: 0px;
+    }
+  </style>
+}

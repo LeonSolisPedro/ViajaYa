@@ -1,5 +1,28 @@
-<h1>Términos</h1>
+@section metaSEO {
+    <title>Terminos Y Condiciones - @ViewBag.nameAgency</title>
+    <meta name="description" content="Lee nuestros términos y condiciones antes de tomar uno de nuestros tours con nosotros. Aquí encontrarás toda la información importante que necesitas conocer.">
+    <meta name="keywords" content="Terminos, Condiciones, Angencia de Viajes, Tours, Experiencias, Conoce, AME Viajar"> 
+}
 
-<div>
-  @Html.Raw(ViewBag.terminosCondiciones)
-</div>
+<section class="page-header">
+  <div class="page-header__bg" style="background-image: url(/assets/images/imagenespedrito/terminos-condiciones.webp);"></div>
+  <div class="container">
+    <h2 class="page-header__title">Términos y condiciones</h2>
+  </div>
+</section>
+
+<!-- Gallery Page Start -->
+<div class="gallery-page section-space">
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-12 mt-0">
+        @Html.Raw(ViewBag.terminosCondiciones)
+      </div>
+
+
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</div><!-- /.gallery-page -->
+<!-- Gallery Page End -->
