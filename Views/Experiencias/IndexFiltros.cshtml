@@ -1,0 +1,43 @@
+@using Newtonsoft.Json
+
+<script src="https://unpkg.com/vue@3"></script>
+
+<script>
+  //Ocultar filtros
+  function openCloseNav() {
+    document.getElementById("filtros-nav").classList.toggle("active-nav");
+  }
+</script>
+
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        experiencias: @Html.Raw(JsonConvert.SerializeObject(ViewBag.experiencias)),
+        // filtrosQueries: [],
+        // selectedIdsQueries: []
+      }
+    },
+    computed: {
+      countExperiencias() {
+        return `${this.experiencias.length} experiencias encontradas`
+      },
+      //filtExperiencias(){
+      //  return this.experiencias.filter(x => this.selectedIdsQueries.includes(x.tourDirection.id));
+      //}
+    },
+    created() {
+      //this.filtrosQueries = this.experiencias.flatMap(x => 
+      //  x.tourSearchQueries.map(y => y.tourSearchQuery)
+      //);
+      //this.filtrosQueries = [...new Map(this.filtrosQueries.map(x => [x.id, x])).values()]
+    },
+    methods: {
+      sayHi() {
+
+      }
+    }
+  })
+
+  const vm = app.mount("#app")
+</script>

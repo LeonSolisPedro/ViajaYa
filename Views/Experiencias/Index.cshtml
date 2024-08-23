@@ -1,0 +1,139 @@
+@section metaSEO {
+    <title>Experiencias - @ViewBag.nameAgency</title>
+    <meta name="description" content="Experiencias inolvidables por siempre únicas, conoce todas nuestras experiencias que tenemos para ofrecerte a ti y disfruta de cada momento de ellas.">
+    <meta name="keywords" content="Viajes, Experiencias, Personas, Parques, Lugares, Entidades, Personas, Reserva, Tour, Aventura, Playas, Turismo, Visitas, AME Viajar">
+}
+
+<button onclick="openCloseNav()" type="button" class="btn btn-primary d-block d-xl-none botoncito-filtros">
+  <i class="fa fa-filter" aria-hidden="true"></i>
+</button>
+
+
+<section class="page-header">
+  <div class="page-header__bg" style="background-image: url(/assets/images/imagenespedrito/experiencias.webp);"></div>
+  <!-- /.page-header__bg -->
+  <div class="container">
+    <h2 class="page-header__title">Nuestras experiencias</h2>
+
+    @if (ViewBag.categoria != null)
+    {
+      <div class="page-header__breadcrumb-box">
+        <ul class="trevlo-breadcrumb">
+          <li class="text-white">@ViewBag.categoria</li>
+        </ul><!-- /.trevlo-breadcrumb -->
+      </div>
+
+      <!-- /.page-header__breadcrumb-box -->
+    }
+
+  </div><!-- /.container -->
+</section><!-- /.page-header -->
+
+<!-- Tour Listing Filter Page Start -->
+<section id="app" class="tour-listing-filter tour-listing section-space">
+  <div class="container">
+    <div class="row">
+
+    <div class="col-xl-3">
+        <aside id="filtros-nav" class="tour-listing-sidebar">
+          <div class="tour-listing-sidebar__form tour-listing-sidebar__item">
+
+            <div class="tour-listing-sidebar__amenities">
+              <h3 class="tour-listing-sidebar__title tour-listing-sidebar__amenities-title">Paises</h3>
+              <div class="tour-listing-sidebar__amenities-box">
+                <span id="paisTour">
+                </span>
+              </div><!-- /.tour-listing-sidebar__amenities-box -->
+            </div><!-- /.tour-listing-sidebar__amenities -->
+
+            <div class="tour-listing-sidebar__amenities">
+              <h3 class="tour-listing-sidebar__title tour-listing-sidebar__amenities-title">Estados</h3>
+              <div class="tour-listing-sidebar__amenities-box">
+                <span id="estadoTour">
+                </span>
+              </div><!-- /.tour-listing-sidebar__amenities-box -->
+            </div><!-- /.tour-listing-sidebar__amenities -->
+
+
+            <div class="tour-listing-sidebar__amenities">
+              <h3 class="tour-listing-sidebar__title tour-listing-sidebar__amenities-title">Tipos</h3>
+              <div class="tour-listing-sidebar__amenities-box">
+                <span id="tipoTour">
+                </span>
+              </div><!-- /.tour-listing-sidebar__amenities-box -->
+            </div><!-- /.tour-listing-sidebar__amenities -->
+
+
+            <div class="tour-listing-sidebar__amenities">
+              <h3 class="tour-listing-sidebar__title tour-listing-sidebar__amenities-title">Categorias</h3>
+              <div class="tour-listing-sidebar__amenities-box">
+                <span id="categoriaTour">
+                </span>
+              </div><!-- /.tour-listing-sidebar__amenities-box -->
+            </div><!-- /.tour-listing-sidebar__amenities -->
+
+
+          </div><!-- /.tour-listing-sidebar__form tour-listing-sidebar__item -->
+        </aside><!-- /.tour-listing-sidebar -->
+      </div><!-- /.col-xl-4 -->
+
+      <div class="col-xl-9">
+        <div class="row">
+          <div class="col-12">
+            <div class="showing-result tour-listing-one__showing-result">
+              <div class="showing-result__info-top">
+                <div class="showing-result__text-box">
+                  <h3 class="showing-result__text"> {{ countExperiencias }} </h3>
+                </div>
+              </div>
+            </div><!-- /.showing-result -->
+          </div><!-- /.col-12 -->
+
+
+          <div class="col-md-6" v-for="experiencia in experiencias" :key="experiencia.id">
+            <div class="tour-listing__card" style="height: 100%;">
+              <a :href="`${experiencia.url}`" class="tour-listing__card-image-box">
+                <img alt="Imagen del tour" :src="`@(ViewBag.urlImage)${experiencia.image}`" class="tour-listing__card-image correcion-pedrito-32">
+                <div class="tour-listing__card-image-overlay"></div><!-- /.tour-listing__card-image-overlay -->
+              </a><!-- /.tour-listing__card-image-box -->
+              <div class="tour-listing__card-content">
+                <h3 class="tour-listing__card-title webkit-line-2"><a :href="`${experiencia.url}`">{{ experiencia.title }}</a></h3>
+                <p class="tour-listing__card-text text-small webkit-line-2">{{ experiencia.description }}</p>
+                <div class="tour-listing__card-inner-content">
+                  <div class="tour-listing__card-location-box">
+                    <span class="icon-location-1"></span>
+                    <p class="tour-listing__card-location-text text-small">Duración {{experiencia.duration}}</p>
+                  </div><!-- /.tour-listing__card-location-box -->
+                  <div class="tour-listing__card-divider"></div><!-- /.tour-listing__card-divider -->
+                  <div class="tour-listing__card-bottom">
+                    <div class="tour-listing__card-bottom-right">
+                      <h4 class="tour-listing__card-price">$ 000 MXN</h4>
+                    </div><!-- /.tour-listing__card-bottom-right -->
+                  </div><!-- /.tour-listing__card-bottom -->
+                </div><!-- /.tour-listing__card-inner-content -->
+                <div class="text-center mt-3">
+                  <a :href="`${experiencia.url}`" class="btn btn-primary"><i class="fas fa-hand-point-up me-1"></i> Reservar</a>
+                </div>
+              </div><!-- /.tour-listing__card-content -->
+            </div><!-- /.tour-listing__card -->
+          </div><!-- /.col-md-6 -->
+
+
+          @if (ViewBag.experiencias.Count == 0)
+          {
+            <p class="text-center" style="margin-top: 104px;">Sin experiencias encontradas, inténtelo más tarde</p>
+          }
+
+        </div><!-- /.row -->
+      </div><!-- /.col-xl-8 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section>
+<!-- TTour Listing Filter Page End -->
+
+
+@section scripts {
+  @{
+    await Html.RenderPartialAsync("IndexFiltros");
+  }
+}

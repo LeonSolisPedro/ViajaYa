@@ -40,14 +40,14 @@ public class HomeController : Controller
 
 
         ViewBag.slider = data1;
-        ViewBag.popularTours = data2;
         ViewBag.countPopular = data2?.Count ?? 0;
-        ViewBag.otherTours = data3;
+        ViewBag.popularTours = data2;
         ViewBag.countOther = data3?.Count ?? 0;
-        ViewBag.topGallery = data4;
+        ViewBag.otherTours = data3;
         ViewBag.countGallery = data4?.Count ?? 0;
-        ViewBag.offers = data5;
+        ViewBag.topGallery = data4;
         ViewBag.countOffers = data5?.Count ?? 0;
+        ViewBag.offers = data5;
 
         return View();
     }

@@ -1,0 +1,291 @@
+@section metaSEO {
+  <title>@ViewBag.tour.title - @ViewBag.nameAgency</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="@ViewBag.tour.metaKeywords">
+}
+
+<!-- Tour Listing Details One Start -->
+<section class="tour-listing-details">
+  <div class="tour-listing-details__info-area mt-5">
+    <div class="container">
+      <div class="tour-listing-details__info">
+        <div class="tour-listing-details__info-left">
+          <h3 class="tour-listing-details__dastination-title">@ViewBag.tour.title</h3>
+        </div><!-- /.tour-listing-details__info-left -->
+        <div class="tour-listing-details__info-right">
+          <small>Desde</small>
+          <h4>$ 000 MXN</h4>
+        </div>
+      </div><!-- /.tour-listing-details__info -->
+    </div><!-- /.container -->
+  </div><!-- /.tour-listing-details__info-area -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-4">
+        <aside class="tour-listing-details__sidebar">
+          <div
+            class="tour-listing-details__sidebar-book-tours tour-listing-details__sidebar-single wow animated fadeInUp"
+            data-wow-delay="0.1s" data-wow-duration="1500ms">
+            <h3 class="tour-listing-details__sidebar-title">Reserva ahora</h3>
+          </div>
+          @if (ViewBag.sitio.whatsapp != "" && ViewBag.sitio.phoneContact != "")
+          {
+            <div class="tour-listing-details__sidebar-post-box tour-listing-details__sidebar-single wow animated fadeInUp"
+              data-wow-delay="0.1s" data-wow-duration="1500ms">
+              <h3 class="tour-listing-details__sidebar-title tour-listing-details__sidebar-post-title">Contáctanos</h3>
+              <ul class="tour-listing-sidebar-post">
+                @if (ViewBag.sitio.phoneContact != "")
+                {
+                  <li class="tour-listing-sidebar-post__item">
+                    <a class="color-normal-hotel" target="_blank" href="tel:@ViewBag.sitio.phoneContact"><i
+                        class="fab fa-whatsapp" style="font-size: 52px;"></i></a>
+                    <div class="tour-listing-sidebar-post__content">
+                      <h5 class="tour-listing-sidebar-post__link"><a target="_blank"
+                          href="tel:@ViewBag.sitio.phoneContact">Whatsapp</a>
+                      </h5>
+                      <div class="tour-listing-sidebar-post__location">
+                        <a target="_blank" href="tel:@ViewBag.sitio.phoneContact"
+                          class="tour-listing-sidebar-post__location-text text-small">@ViewBag.sitio.phoneContact</a>
+                      </div>
+                    </div>
+                  </li>
+                }
+                @if (ViewBag.sitio.phoneContact != "")
+                {
+                  <li class="tour-listing-sidebar-post__item">
+                    <a class="color-normal-hotel" href="tel:@ViewBag.sitio.phoneContact"><i class="fas fa-phone-alt"
+                        style="font-size: 49px;"></i></a>
+                    <div class="tour-listing-sidebar-post__content">
+                      <h5 class="tour-listing-sidebar-post__link"><a href="tel:@ViewBag.sitio.phoneContact">Teléfono</a>
+                      </h5>
+                      <div class="tour-listing-sidebar-post__location">
+                        <a href="tel:@ViewBag.sitio.phoneContact"
+                          class="tour-listing-sidebar-post__location-text text-small">@ViewBag.sitio.phoneContact</a>
+                      </div>
+                    </div>
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        </aside><!-- /.tour-listing-details__sidebar -->
+      </div><!-- /.col-xl-4 -->
+      <div class="col-xl-8">
+        <div class="tour-listing-details__slider">
+          <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+              @foreach (var image in ViewBag.tour.tourGalleryImages)
+              {
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@image.index"
+                  class="@(image.index == 0 ? "active" : "")" aria-current="true"></button>
+              }
+            </div>
+            <div class="carousel-inner rounded">
+              @foreach (var image in ViewBag.tour.tourGalleryImages)
+              {
+                <div class="carousel-item @(image.index == 0 ? "active" : "")">
+                  <a data-lity href="@(ViewBag.urlImage)@(image.image)"><img
+                      src="@(ViewBag.urlImage)@(image.imagePreview)" alt="Imagen del tour"
+                      class="d-block w-100 corrrecion-pedrito-49"></a>
+                </div>
+              }
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+        </div><!-- /.tour-listing-details__slider -->
+        <div class="d-flex justify-content-center align-items-center flex-wrap gap-5 mb-4">
+          <div class="tour-listing-details__destination-info wow animated fadeInUp" data-wow-delay="0.1s"
+            data-wow-duration="1500ms">
+            <span class="icon-clock-1"></span>
+            <div class="tour-listing-details__destination-info-title">
+              <h4 class="tour-listing-details__destination-info-top">Duración</h4>
+              <h4 class="tour-listing-details__destination-info-bottom">@ViewBag.tour.duration</h4>
+            </div>
+          </div><!-- /.tour-listing-details__destination-info -->
+          <div class="tour-listing-details__destination-info wow animated fadeInUp" data-wow-delay="0.7s"
+            data-wow-duration="1500ms">
+            <span class="icon-location-1"></span>
+            <div class="tour-listing-details__destination-info-title">
+              <h4 class="tour-listing-details__destination-info-top">Ubicación</h4>
+              <h4 class="tour-listing-details__destination-info-bottom">@ViewBag.tour.tourDirection.name</h4>
+            </div>
+          </div><!-- /.tour-listing-details__destination-info -->
+        </div>
+        <div class="tour-listing-details__explore">
+          <div class="wow animated fadeIn" data-wow-delay="0.1s" data-wow-duration="1500ms">
+            <h3 class="tour-listing-details__title tour-listing-details__explore-title">Descripción</h3>
+          </div>
+          <p class="tour-listing-details__explore-text">@Html.Raw(ViewBag.tour.description)</p>
+        </div><!-- /.tour-listing-details__explore -->
+        @if (ViewBag.tour.linkVideo != null)
+        {
+          <div class="tour-listing-details__location">
+            <h3 class="tour-listing-details__title tour-listing-details__location-title">Video</h3>
+            <iframe class="supervideo-pedrito" style="height: 100%; border-radius: 8px;"
+              src="https://www.youtube.com/embed/LXb3EKWsInQ?si=KulS0JjaZW1Nd-Im" allow="accelerometer; autoplay;"
+              allowfullscreen=""></iframe>
+          </div>
+
+          <!-- /.tour-listing-details__location -->
+        }
+        <div class="tour-listing-details__included">
+          <h3 class="tour-listing-details__title tour-listing-details__included-title">Recomendaciones</h3>
+          <div class="row">
+            <div class="col-lg-6 col-md-7 wow animated fadeInUp" data-wow-delay="0.1s" data-wow-duration="1500ms">
+              <ul class="tour-listing-details__included-list-one">
+                @foreach (var recomendacion in ViewBag.recomendations)
+                {
+                  <li>
+                    <i class="fas fa-check-circle"></i>
+                    <p>@recomendacion.description</p>
+                  </li>
+                }
+              </ul><!-- /.tour-listing-details__included-list-one -->
+            </div><!-- /.col-lg-6 col-md-7 -->
+          </div><!-- /.row -->
+        </div><!-- /.tour-listing-details__included -->
+        <div class="tour-listing-details__included">
+          <h3 class="tour-listing-details__title tour-listing-details__included-title">Incluye / No incluye</h3>
+          <div class="row">
+            <div class="col-lg-6 col-md-7 wow animated fadeInUp" data-wow-delay="0.1s" data-wow-duration="1500ms">
+              <ul class="tour-listing-details__included-list-one">
+                @foreach (var incluye in ViewBag.includes)
+                {
+                  <li>
+                    <i class="fas fa-check-circle"></i>
+                    <p>@incluye.description</p>
+                  </li>
+                }
+              </ul><!-- /.tour-listing-details__included-list-one -->
+            </div><!-- /.col-lg-6 col-md-7 -->
+            <div class="col-lg-6 col-md-5 wow animated fadeInUp" data-wow-delay="0.3s" data-wow-duration="1500ms">
+              <ul class="tour-listing-details__included-list-two">
+                @foreach (var noincluye in ViewBag.excludes)
+                {
+                  <li>
+                    <i class="fas fa-times"></i>
+                    <p>@noincluye.description</p>
+                  </li>
+                }
+              </ul><!-- /.tour-listing-details__included-list-one -->
+            </div><!-- /.col-lg-6 col-md-5 -->
+          </div><!-- /.row -->
+        </div><!-- /.tour-listing-details__included -->
+        <div class="tour-listing-details__plan">
+          <div class="d-flex justify-content-between mb-4">
+            <h3 class="tour-listing-details__title tour-listing-details__plan-title mb-0">Itinerario</h3>
+            @if (ViewBag.tour.linkPDFItinerary != null)
+            {
+              <a target="_blank" href="@(ViewBag.urlImage)@(ViewBag.tour.linkPDFItinerary)"
+                class="btn btn-primary btn-sm correcion-pedrito-6"><i class="fas fa-file-pdf me-1"></i> Descargar en
+                PDF</a>
+            }
+          </div>
+          <div class="trevlo-accrodion tour-listing-details__faq" data-grp-name="tour-listing-details__faq">
+
+            @foreach (var itinerario in ViewBag.tour.tourItineraries)
+            {
+              <div class="accrodion @(itinerario.index == 0 ? "active" : "") wow animated fadeInUp" data-wow-delay="0.1s"
+                data-wow-duration="1500ms">
+                <div class="accrodion-title">
+                  <h4>Día @itinerario.day</h4>
+                </div>
+                <div class="accrodion-content" style="@(itinerario.index == 0 ? "" : "display: none;")">
+                  <div class="inner">
+                    <p>@Html.Raw(@itinerario.description)</p>
+                  </div>
+                </div>
+              </div>
+            }
+
+          </div>
+        </div><!-- /.tour-listing-details__plan -->
+        @if (ViewBag.tour.tourSimilar.Count > 0)
+        {
+          <div class="tour-listing-details__similar container-fluid">
+            <h3 class="tour-listing-details__title tour-listing-details__similar-title">Tours Similares</h3>
+            <div
+              class="tour-listing-one__carousel trevlo-owl__carousel trevlo-owl__carousel--basic-nav trevlo-owl__carousel--with-shadow owl-theme owl-carousel"
+              data-owl-options='{
+                "items": 3,
+                "margin": 30,
+                "smartSpeed": 700,
+                "loop":false,
+                "nav":false,
+                "dots":true,
+                "navText": ["<span class=\"fa fa-angle-left\"></span>","<span class=\"fa fa-angle-right\"></span>"],
+                "responsive":{
+                    "0":{
+                        "items": 1
+                    },
+                    "768":{
+                        "items": 2
+                    }
+                }
+                }'>
+
+              @foreach (var relacionado in ViewBag.tour.tourSimilar)
+              {
+                <div class="item" style="height: 100%;">
+                  <div class="tour-listing__card" style="height: 100%;">
+                    <a href="@relacionado.url" class="tour-listing__card-image-box">
+                      <img alt="Imagen del Tour Similar" src="@(ViewBag.urlImage)@(relacionado.image)"
+                        class="tour-listing__card-image correcion-pedrito-32">
+                      <div class="tour-listing__card-image-overlay"></div><!-- /.tour-listing__card-image-overlay -->
+                    </a><!-- /.tour-listing__card-image-box -->
+                    <div class="tour-listing__card-content">
+                      <h3 class="tour-listing__card-title webkit-line-2 text-break"><a
+                          href="@relacionado.url">@relacionado.title</a></h3>
+                      <div class="tour-listing__card-inner-content">
+                        <div class="tour-listing__card-location-box">
+                          <span class="icon-location-1"></span>
+                          <p class="tour-listing__card-location-text text-small">Duración @relacionado.duration</p>
+                        </div><!-- /.tour-listing__card-location-box -->
+                        <div class="tour-listing__card-divider"></div><!-- /.tour-listing__card-divider -->
+                        <div class="tour-listing__card-bottom">
+                          <div class="tour-listing__card-bottom-right">
+                            <h4 class="tour-listing__card-price">$ 000 MXN</h4>
+                          </div><!-- /.tour-listing__card-bottom-right -->
+                        </div><!-- /.tour-listing__card-bottom -->
+                      </div><!-- /.tour-listing__card-inner-content -->
+                      <div class="text-center mt-3">
+                        <a href="@relacionado.url" class="btn btn-primary"><i class="fas fa-hand-point-up me-1"></i>
+                          Reservar</a>
+                      </div>
+                    </div><!-- /.tour-listing__card-content -->
+                  </div><!-- /.tour-listing__card -->
+                </div>
+
+                <!-- /.col-md-6 -->
+              }
+
+
+            </div><!-- /.row -->
+          </div>
+
+          <!-- /.tour-listing-details__similar container-fluid -->
+        }
+      </div><!-- /.col-xl-8 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section>
+<!-- Tour Listing Details One End -->
+
+@section css {
+  <link href="/assets/css/lity.min.css" rel="stylesheet" type="text/css">
+}
+
+
+@section scripts {
+  <script src="/assets/js/lity.min.js"></script>
+}
