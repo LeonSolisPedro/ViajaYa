@@ -69,8 +69,8 @@
   --trevlo-font2: "Urbanist", sans-serif;
   --trevlo-font3: "Manrope", sans-serif;
   --trevlo-special-font: "Covered By Your Grace", cursive;
-  --trevlo-base: #F0383C;
-  --trevlo-base-rgb: 255, 89, 86;
+  --trevlo-base: #F9564F;
+  --trevlo-base-rgb: 249, 86, 79;
   --trevlo-primary: #2D2330;
   --trevlo-primary-rgb: 45, 35, 48;
   --trevlo-secondary: #736D75;
@@ -1008,7 +1008,7 @@ path {
   animation-iteration-count: infinite;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 60px auto;
+  background-size: 126px auto;
   width: 100%;
   height: 100%;
 }
