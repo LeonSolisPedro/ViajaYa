@@ -11,6 +11,35 @@ env:
   REGION: us-central1
 
 jobs:
+  build-and-publish-zip:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0'
+
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v2
+      with:
+        credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@v2
+
+    - name: Build and publish .NET app
+      run: dotnet publish Web.csproj --configuration "Release" --output "dist"
+
+    - name: Create zip file
+      run: cd dist && zip -r ../dist.v1.zip .
+
+    - name: Upload to Google Cloud Storage
+      run: gsutil cp dist.v1.zip gs://onlinebookbinaries/dist.v1.zip
+
   deploy:
     runs-on: ubuntu-latest
     
