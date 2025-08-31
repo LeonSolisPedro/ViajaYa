@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using Web.Filters;
 
 //Services
@@ -7,7 +8,12 @@ var mvcBuilder = builder.Services.AddControllersWithViews(options =>
     options.Filters.Add<GlobalActionFilter>();
 });
 if (builder.Environment.IsDevelopment()) mvcBuilder.AddRazorRuntimeCompilation();
-builder.Services.AddHttpClient("client", x => { x.BaseAddress = new Uri($"{builder.Configuration["Settings:BaseAPIURL"]}/"); });
+builder.Services.AddHttpClient("client", x =>
+{
+    x.BaseAddress = new Uri($"{builder.Configuration["Settings:BaseAPIURL"]}/");
+    var token = builder.Configuration["Settings:Token"] ?? "";
+    x.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+});
 
 //App
 var app = builder.Build();
