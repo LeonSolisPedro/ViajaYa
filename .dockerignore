@@ -7,7 +7,7 @@
 **/.vscode
 **/.vs
 
-# project specific
+# project specificc
 /dist
 /bin
 /obj
